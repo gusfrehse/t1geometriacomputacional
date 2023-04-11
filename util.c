@@ -72,17 +72,17 @@ vec3 v3(base_type x, base_type y, base_type z) {
 }
 
 void print3(vec3 v) {
-    printf("(" fmt_str ", " fmt_str ", " fmt_str ")\n", v.x, v.y, v.z);
+    printf("(" out_fmt_str ", " out_fmt_str ", " out_fmt_str ")\n", v.x, v.y, v.z);
 }
 
 void print2(vec2 v) {
-    printf("(" fmt_str ", " fmt_str ")\n", v.x, v.y);
+    printf("(" out_fmt_str ", " out_fmt_str ")\n", v.x, v.y);
 }
 
 vec3 read3() {
     vec3 v;
 
-    assert(scanf("(" fmt_str ", " fmt_str ", " fmt_str ")\n", &v.x, &v.y, &v.z) == 3);
+    assert(scanf(in_fmt_str " " in_fmt_str " " in_fmt_str, &v.x, &v.y, &v.z) == 3);
 
     return v;
 }
@@ -90,7 +90,7 @@ vec3 read3() {
 vec2 read2() {
     vec2 v;
 
-    int result = scanf("(" fmt_str ", " fmt_str ")\n", &v.x, &v.y);
+    int result = scanf(" " in_fmt_str " " in_fmt_str " ", &v.x, &v.y);
     assert(result == 2);
 
     return v;

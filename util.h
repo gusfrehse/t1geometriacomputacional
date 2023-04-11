@@ -2,7 +2,8 @@
 #define UTIL_H
 
 #define base_type float
-#define fmt_str "%.3f"
+#define in_fmt_str "%f"
+#define out_fmt_str "%.3f"
 
 typedef struct vec2 {
     base_type x;
