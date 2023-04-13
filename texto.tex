@@ -1,0 +1,54 @@
+% vim: set tw=80 ts=2 sts=2 sw=2 et:
+\documentclass[12pt]{article}
+
+\usepackage{mathtools}
+\usepackage{amsfonts}
+
+\title{Trabalho 1 de Geometria Computacional}
+\author{Gustavo Silveira Frehse GRR20203927}
+\begin{document}
+  \maketitle
+  \section{O Problema}
+  Dados os vértices de $m$ polígonos, queremos descobrir se tratam-se de
+  polígonos simples e se são convexos.
+
+  Além disso, dado $n$ pontos queremos descobrir se estão dentro dos polígonos
+  dados anteriormente.
+
+  \section{Classificação Polígonos}
+  \subsection{Teste Convexidade} Primeiro vamos observar que podemos ``criar'' a
+  operação $\text{det} : V \times V \rightarrow \mathbb{R}$, tal que dada dois
+  vetores $u$ e $v$ temos 
+  \[
+    \text{det}(u, v) = \text{determinante da matriz com colunas } u \text{ e } v
+  \]
+  Com essa operação podemos determinar a orientação de dois vetores.
+
+  Para cada vértice $v_i$ checamos se $\text{det}(v_i - v_{i-1}, v_{i+1} - v_i)$
+  tem o mesmo valor que para $v_{i - 1}$.
+
+  Isso é equivalente a dizer que, caminhando em cima das arestas do polígono,
+  nos vértices viramos sempre para à direita ou sempre à esquerda.
+
+  Isso, por sua vez, é equivalente a dizer que o polígono é convexo. Assim, caso
+  encontremos um $v_i$ em que $\text{det}(v_i - v_{i-1}, v_{i+1} - v_i)$ é
+  diferente do anterior, sabemos que o polígono não é convexo.
+
+  \subsection{Teste Simplicidade}
+  Para cada par de arestas, checamos se elas se intersectam. Caso intersectem, o
+  polígono não é simples.
+
+  \section{Pontos interiores}
+  Contamos o número de interseções com o polígono de uma semireta iniciando no
+  ponto em questão. Se esse número é par, o ponto está fora, senão está dentro.
+
+  Isso funciona pois sabemos que ao ``atravessar'' uma aresta, ou entramos no
+  polígono ou saímos. Como se trata de uma semireta, sabemos que o último passo
+  vai ser ``sair'' do polígono.
+
+  Assim, caso o número de interseções seja par, tivemos que entrar e sair um
+  número igual de vezes, e como terminamos fora, no início também estávamos
+  fora. Caso seja ímpar, tivemos que sair uma vez a mais, portanto estávamos
+  dentro do polígono.
+
+\end{document}
