@@ -3,6 +3,7 @@
 
 \usepackage{mathtools}
 \usepackage{amsfonts}
+\usepackage{hyperref}
 
 \title{Trabalho 1 de Geometria Computacional}
 \author{Gustavo Silveira Frehse GRR20203927}
@@ -38,6 +39,19 @@
   Para cada par de arestas, checamos se elas se intersectam. Caso intersectem, o
   polígono não é simples.
 
+  Para testar a interseção usamos a função \verb|intersect|
+  \cite{wik-intersect}, que dada duas retas $a$ e $b$, cada uma especificada por
+  dois vértices ($a_1, a_2, b_1, b_2$), calcula os parâmetros $t_0$ e $t_1$ tal
+  que 
+
+  \[
+    a(t_0) = t_0 \cdot a_1 + (1-t_0) \cdot a_2 = t_1 \cdot b_1 + (1 - t_1) \cdot
+    b_2 = b(t_1)
+  \]
+
+  Dessa forma conseguimos saber se duas retas se intersectam se os dois $t_0$ e
+  $t_1$ estão entre 0 e 1.
+
   \section{Pontos interiores}
   Contamos o número de interseções com o polígono de uma semireta iniciando no
   ponto em questão. Se esse número é par, o ponto está fora, senão está dentro.
@@ -50,5 +64,12 @@
   número igual de vezes, e como terminamos fora, no início também estávamos
   fora. Caso seja ímpar, tivemos que sair uma vez a mais, portanto estávamos
   dentro do polígono.
+
+  \begin{thebibliography}{9}
+    \bibitem{wik-intersect} Wikipedia,
+      \href{https://en.wikipedia.org/wiki/Line-line_intersection}{Line-line
+      intersection}, 2023
+  \end{thebibliography}
+
 
 \end{document}

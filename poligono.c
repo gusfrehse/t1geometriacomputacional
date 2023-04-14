@@ -40,6 +40,7 @@ int main() {
 
     polygon *poligonos = calloc(n, sizeof(polygon));
 
+    // ler poligonos
     for (int i = 0; i < m; i++) {
         int num_vertices;
         assert(scanf("%d", &num_vertices) == 1);
